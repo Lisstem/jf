@@ -89,13 +89,13 @@ public class ProgrammWriter {
                     run.visitVarInsn(Opcodes.ALOAD, TAPE_POSITION);
                     run.visitVarInsn(Opcodes.ILOAD, DATA_POINTER_POSITION);
                     run.visitInsn(Opcodes.BALOAD);
-                    run.visitMethodInsn(Opcodes.INVOKEVIRTUAL, Type.getType(OutputStream.class).getInternalName(), "write", Type.getMethodDescriptor(Type.VOID_TYPE, Type.INT_TYPE));
+                    run.visitMethodInsn(Opcodes.INVOKEVIRTUAL, Type.getType(OutputStream.class).getInternalName(), "write", Type.getMethodDescriptor(Type.VOID_TYPE, Type.INT_TYPE), false);
                     break;
                 case ',':
                     run.visitVarInsn(Opcodes.ALOAD, TAPE_POSITION);
                     run.visitVarInsn(Opcodes.ILOAD, DATA_POINTER_POSITION);
                     run.visitVarInsn(Opcodes.ALOAD, IN_STREAM_POSITION);
-                    run.visitMethodInsn(Opcodes.INVOKEVIRTUAL, Type.getType(InputStream.class).getInternalName(), "read", Type.getMethodDescriptor(Type.INT_TYPE));
+                    run.visitMethodInsn(Opcodes.INVOKEVIRTUAL, Type.getType(InputStream.class).getInternalName(), "read", Type.getMethodDescriptor(Type.INT_TYPE), false);
                     run.visitInsn(Opcodes.BASTORE);
                     break;
                 case '[':
